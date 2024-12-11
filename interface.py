@@ -103,7 +103,9 @@ class Interface:
         if choice == 1:
             self.details.sort(key=lambda x: x.detail_code)
         elif choice == 2:
-            self.details.sort(key=lambda x: x.cell_address)
+            # Сортировка по адресу ячейки с учётом числового значения
+            self.details.sort(key=lambda x: (int(x.cell_address[1:x.cell_address.index('C')]), 
+                                            int(x.cell_address[x.cell_address.index('C') + 1:])))
         elif choice == 3:
             self.details.sort(key=lambda x: x.cell_count)
         else:
@@ -111,3 +113,4 @@ class Interface:
             return
         print("Список отсортирован.")
         self.print_details()
+
