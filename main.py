@@ -1,8 +1,9 @@
-from func import *
+from interface import Interface
 
 
 def menu():
     '''Реализация пользовательского интерфейса'''
+    interface = Interface()
     while True:
         print("\nМеню:")
         print("1. Добавить запись (приемка)")
@@ -17,19 +18,19 @@ def menu():
         choice = input("Выберите действие (1-8): ")
 
         if choice == "1":
-            add_detail()
+            interface.add_detail()
         elif choice == "2":
-            remove_detail()
+            interface.remove_detail()
         elif choice == "3":
-            print_details()
+            interface.print_details()
         elif choice == "4":
-            pass
+            interface.filter_by_code()
         elif choice == "5":
-            pass
+            interface.total_count_by_code()
         elif choice == "6":
-            pass
+            interface.total_count_all()
         elif choice == "7":
-            pass
+            interface.sort_details()
         elif choice == "8":
             print("Выход из программы")
             break
